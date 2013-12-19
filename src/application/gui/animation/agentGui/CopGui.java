@@ -13,8 +13,8 @@ public class CopGui extends VehicleHorizontalGui {
 	ImageIcon carLeft = new ImageIcon("res/CopCarLeft.png");
 	ImageIcon carRight = new ImageIcon("res/CopCarRight.png");
 
-	private int TopRoadY = 325/3-carLeft.getIconHeight()/2;
-	private int BottomRoadY = 325*2/3-carRight.getIconHeight()/2;
+	 private final int TopRoadY = 75;
+     private final int BottomRoadY = 195;
 
 	public CopGui() {
 		xPos = 600;

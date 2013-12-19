@@ -23,10 +23,10 @@ public class BusGuiHorizontal extends VehicleGui {
 
 	private final int stopLeftX = (int) Phonebook.getPhonebook().getAllBusStops().get(1).getBusStopLocation().getX()-15;
 	private final int stopRightX = (int) Phonebook.getPhonebook().getAllBusStops().get(2).getBusStopLocation().getX();
-	private final int stopTopY = 95;
-	private final int stopBottomY = 200;
-	private final int offScreenLeftBottomRoad = -50;
-	private final int offScreenRightTopRoad = 600;
+	  private final int stopTopY = 75;
+      private final int stopBottomY = 195;
+      private final int offScreenLeftBottomRoad = -50;
+      private final int offScreenRightTopRoad = 650;
 
 	private final int waitTime = 1500;
 

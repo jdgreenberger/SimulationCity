@@ -34,11 +34,7 @@ public class ApplicationGui extends JFrame {
 
 	ApplicationPanel appPanel; 
 	AnimationPanel animPanel = new AnimationPanel();	
-	/*
-	Toolkit tk = Toolkit.getDefaultToolkit();
-	int WINDOWX = ((int) tk.getScreenSize().getWidth()); 
-	int WINDOWY = ((int) tk.getScreenSize().getHeight()); 
-	*/
+
 	final static int WINDOWX = 1200;
 	final static int WINDOWY = 700;
 	int APPWIDTH = WINDOWX*(4/10);
@@ -65,34 +61,6 @@ public class ApplicationGui extends JFrame {
 
 
 	public static void main(String[] args) {
-		/*Properties props = new Properties();
-		
-		try {
-		    FileInputStream in = new FileInputStream("propFile.properties");
-		    props.load(in);
-		    in.close();
-		} catch(IOException e) {
-			e.printStackTrace();
-		} catch(IllegalArgumentException iae) {
-			  iae.printStackTrace();
-		}*/
-		/*
-		Scanner in;
-		
-		try
-		{
-			in = new Scanner(new File("docs/input.txt"));
-			while(in.hasNext())
-			{
-				System.out.println(in.next());
-			}
-		}
-		catch (FileNotFoundException e)
-		{
-			System.err.println("File not found. Retry.");
-		}*/
-		
-		
 		ApplicationGui gui = new ApplicationGui();
 		gui.setTitle("SimCity 201 - Team 20");
 		gui.setVisible(true);

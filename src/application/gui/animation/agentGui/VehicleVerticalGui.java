@@ -13,17 +13,16 @@ public class VehicleVerticalGui extends VehicleGui {
 	ImageIcon carDown = new ImageIcon("res/CarDown.png");
 
 
-	private final int leftRoadX = 600/3-carUp.getIconWidth()/2;
-	private final int rightRoadX = 600*2/3-carDown.getIconWidth()/2;
-	private final int offScreenTopLeftRoad = -50;
-	private final int offScreenBottomRightRoad = 325;
+    private final int leftRoadX = 168;
+    private final int rightRoadX = 395;
+    private final int offScreenTopLeftRoad = -50;
+    private final int offScreenBottomRightRoad = 350;
 
 	public VehicleVerticalGui() {
 		xPos = rightRoadX;
 		yPos = offScreenTopLeftRoad;
 		yDestination = offScreenBottomRightRoad;
 		me.setSize(carUp.getIconWidth(), carUp.getIconHeight());
-		//me.setSize(25, 25);
 	}
 
 	public void updatePosition() {

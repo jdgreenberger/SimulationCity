@@ -147,25 +147,29 @@ public class Phonebook{
 
 	
 	
-	//Intersections	
-	public Intersection intersection1 = new Intersection(600/3-325/18, 325/3-325/18, 325/9, 325/9, 1);
-	public Intersection intersection2 = new Intersection(600*2/3-325/18, 325/3-325/18, 325/9, 325/9, 2);
-	public Intersection intersection3 = new Intersection(600/3-325/18, 325*2/3-325/18, 325/9, 325/9, 3);
-	public Intersection intersection4 = new Intersection(600*2/3-325/18, 325*2/3-325/18, 325/9, 325/9, 4);
-	
-	public Crosswalk crosswalk1 = new Crosswalk(600/3-600/35, 325/6-325/9, 325/9, 25, 1);
-	public Crosswalk crosswalk2 = new Crosswalk(600*2/3-600/35, 325/6-325/9, 325/9, 25, 1);
+	//Intersections        
+    public Intersection intersection1 = new Intersection(170, 72, 30, 38, 1);
+    public Intersection intersection2 = new Intersection(390, 72, 30, 38, 2);
+    public Intersection intersection3 = new Intersection(170, 192, 30, 38, 3);
+    public Intersection intersection4 = new Intersection(390, 192, 30, 38, 4);
+    
+    //Crosswalks
+    public Crosswalk crosswalk1 = new Crosswalk(160, 10, 39, 25, 1);
+    public Crosswalk crosswalk2 = new Crosswalk(380, 10, 39, 25, 1);
 
-	public Crosswalk crosswalk3 = new Crosswalk(600/6, 325/3-325/18, 25, 325/9, 3);
-	public Crosswalk crosswalk4 = new Crosswalk(600/2, 325/3-325/18, 25, 325/9, 4);
-	public Crosswalk crosswalk5 = new Crosswalk(600*5/6, 325/3-325/18, 25, 325/9, 5);
+    public Crosswalk crosswalk3 = new Crosswalk(70, 70, 25, 39, 3);
+    public Crosswalk crosswalk4 = new Crosswalk(280, 70, 25, 39, 4);
+    public Crosswalk crosswalk5 = new Crosswalk(490, 70, 25, 39, 5);
 
-	public Crosswalk crosswalk6 = new Crosswalk(600/3-600/35, 325/2-325/18, 325/9, 25, 6);
-	public Crosswalk crosswalk7 = new Crosswalk(600*2/3-600/35, 325/2-325/18, 325/9, 25, 7);
+    public Crosswalk crosswalk6 = new Crosswalk(160, 137, 39, 25, 6);
+    public Crosswalk crosswalk7 = new Crosswalk(380, 137, 39, 25, 7);
 
-	public Crosswalk crosswalk8 = new Crosswalk(600/6, 325*2/3-325/18, 25, 325/9, 8);
-	public Crosswalk crosswalk9 = new Crosswalk(600/2, 325*2/3-325/18, 25, 325/9, 9);
-	public Crosswalk crosswalk10 = new Crosswalk(600*5/6, 325*2/3-325/18, 25, 325/9, 10);
+    public Crosswalk crosswalk8 = new Crosswalk(70, 190, 25, 39, 8);
+    public Crosswalk crosswalk9 = new Crosswalk(280, 190, 25, 39, 9);
+    public Crosswalk crosswalk10 = new Crosswalk(490, 190, 25, 39, 10);
+
+    public Crosswalk crosswalk11 = new Crosswalk(160, 270, 39, 25, 11);
+    public Crosswalk crosswalk12 = new Crosswalk(380, 270, 39, 25, 12);
 	
 	//Bus Parking
 	//Stop 1
@@ -183,9 +187,6 @@ public class Phonebook{
 	//Stop 4
 	public BusParking busParking4H = new BusParking(98, 190, 60, 39, 7);
 	public BusParking busParking4V = new BusParking(160, 231, 39, 38, 8);
-
-	public Crosswalk crosswalk11 = new Crosswalk(600/3-600/35, 325*5/6, 325/9, 25, 11);
-	public Crosswalk crosswalk12 = new Crosswalk(600*2/3-600/35, 325*5/6, 325/9, 25, 12);
 	
 	private static Phonebook phonebook;
 

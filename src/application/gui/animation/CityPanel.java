@@ -31,12 +31,9 @@ import application.gui.animation.agentGui.VehicleHorizontalGui;
 import application.gui.animation.agentGui.VehicleVerticalGui;
 
 public class CityPanel extends JPanel implements ActionListener, MouseListener {
-
-	/*
-	Toolkit tk = Toolkit.getDefaultToolkit();
-	int WINDOWX = ((int) tk.getScreenSize().getWidth())/2; 
-	int WINDOWY = (((int) tk.getScreenSize().getHeight())/2)*5/6;   
-	*/
+	
+	private final int WINDOWX = 600;
+    private final int WINDOWY = 325;
 	
 	AnimationPanel animationPanel;
 	//private List<Gui> guis = Collections.synchronizedList(new ArrayList<Gui>());
@@ -93,22 +90,22 @@ public class CityPanel extends JPanel implements ActionListener, MouseListener {
 		} catch (IOException e) {
 		}
 
-		addBuilding("Chinese Restaurant", 600/2, 325/6-restaurant.getIconHeight()-5);
-		addBuilding("Mexican Restaurant", 600/6-restaurant.getIconWidth()-10, 325*5/6+20);
-		addBuilding("American Restaurant", 600/2 - restaurant.getIconWidth(), 325-restaurant.getIconHeight()-20);
-		addBuilding("Italian Restaurant", 600-123, 325/6-restaurant.getIconHeight()/2);
-		addBuilding("Seafood Restaurant", 600-175, 325/2);
+		addBuilding("Chinese Restaurant", (WINDOWX / 2)+20, 5);
+//        addBuilding("Mexican Restaurant", WINDOWX-590, WINDOWY-90);
+//        addBuilding("American Restaurant", WINDOWX-395, WINDOWY-90);
+//        addBuilding("Italian Restaurant", WINDOWX-123, 20);
+//        addBuilding("Seafood Restaurant", WINDOWX-175, 100+market.getIconHeight()+2);
 
-		addBuilding("East Market", 600*5/6+5, 325/2-market.getIconHeight()/2);
-		addBuilding("West Market", 600/6, 325*5/6);
+        addBuilding("East Market", WINDOWX - 85, 108);
+        addBuilding("West Market", WINDOWX - 520, 275);
 
-		addBuilding("East Bank", 600/2, 325-bank.getIconHeight()-20);
-		addBuilding("West Bank", 600/2 - bank.getIconWidth(), 325/6-bank.getIconHeight()/2);
+        addBuilding("East Bank", (WINDOWX / 2), 260);
+        addBuilding("West Bank", (WINDOWX / 2)-105, 10);
 
-		addBuilding("Mansion", 600/6-house.getIconWidth()/2-20, 325/2-house.getIconHeight()/2);
-		addBuilding("West Apartment", 600/6-apartment.getIconWidth(), 325/6-apartment.getIconHeight()/2);
-		addBuilding("East Apartment", 600*5/6, 325*5/6-apartment.getIconHeight()/2);
-		addBuilding("Park",(600/2)-park.getIconWidth()/2,(325/2)-park.getIconHeight()/2);
+        addBuilding("Mansion", 25, 115);
+        addBuilding("West Apartment", 0, 0);
+        addBuilding("East Apartment", 510, WINDOWY-55);
+        addBuilding("Park",(WINDOWX/2)-80,(WINDOWY/2)-47);
 
 
 
@@ -128,14 +125,14 @@ public class CityPanel extends JPanel implements ActionListener, MouseListener {
 		g2.fillRect(0, 0, 600, 325 );
 		g2.drawImage(background, 0, 0, 600, 325, null);
 
-		//Horizontal Roads
-		g2.setColor(Color.BLACK);
-		g2.fillRect(0, 325/3-325/18, 600, 325/9);
-		g2.fillRect(0, 325*2/3-325/18, 600, 325/9);
+        //Horizontal Roads
+        g2.setColor(Color.BLACK);
+        g2.fillRect(0, 70, 600, 39);
+        g2.fillRect(0, 190, 600, 39);
 
-		//Vertical Roads
-		g2.fillRect(600/3-325/18, 0, 325/9, 325);
-		g2.fillRect(600*2/3-325/18, 0, 325/9, 325);
+        //Vertical Roads
+        g2.fillRect(160, 0, 39, 325);
+        g2.fillRect(380, 0, 39, 325);
 
 		//Intersections
 //		g2.setColor(Color.PINK);
@@ -160,10 +157,10 @@ public class CityPanel extends JPanel implements ActionListener, MouseListener {
 		drawCrosswalks(g2);
 
 		//Bus Stops
-		g2.drawImage(busStop.getImage(), 600/3-600/11, 325/3-325/5, null);
-		g2.drawImage(busStop.getImage(), 600/3-600/11, 325*2/3+325/18, null);
-		g2.drawImage(busStop.getImage(), 600*2/3+600/18, 325/3-325/5, null);
-		g2.drawImage(busStop.getImage(), 600*2/3+600/18, 325*2/3+325/18, null);
+		g2.drawImage(busStop.getImage(), 127, 28, null);
+        g2.drawImage(busStop.getImage(), 127, 230, null);
+        g2.drawImage(busStop.getImage(), 420, 28, null);
+        g2.drawImage(busStop.getImage(), 420, 230, null);
 		
 		//Bus Parking
 //		g2.setColor(Color.CYAN);
@@ -200,20 +197,20 @@ public class CityPanel extends JPanel implements ActionListener, MouseListener {
 //				(int) Phonebook.getPhonebook().busParking4V.getBusParking().getWidth(),
 //				(int) Phonebook.getPhonebook().busParking4V.getBusParking().getHeight());
 
-		//One Way Signs
-		g2.drawImage(oneWaySignLeft.getImage(), 600*2/3+75, 325*2/3, null);
-		g2.drawImage(oneWaySignRight.getImage(), 600/3-75, 325/6, null);
-		g2.drawImage(oneWaySignUp.getImage(), 600/3+600/25, 325/2-oneWaySignDown.getIconHeight()/2, null);
-		g2.drawImage(oneWaySignDown.getImage(), 600*2/3-600/20, 325/2-oneWaySignDown.getIconHeight()/2, null);
+        //One Way Signs
+        g2.drawImage(oneWaySignLeft.getImage(), 330, 220, null);
+        g2.drawImage(oneWaySignRight.getImage(), 270, 30, null);
+        g2.drawImage(oneWaySignUp.getImage(), 200, 140, null);
+        g2.drawImage(oneWaySignDown.getImage(), 420, 110, null);
 
 		//Benches
-		g2.drawImage(bench.getImage(), 600/6-bench.getIconWidth()-10, 325*5/6-bench.getIconHeight(), null);
-		g2.drawImage(bench.getImage(), 600*5/6-bench.getIconWidth()-10, 325/2-bench.getIconHeight(), null);
-		g2.drawImage(bench.getImage(), 600/2, 325/6, null);
-		g2.drawImage(bench.getImage(), 600*5/6-bench.getIconWidth()-10, 325*5/6, null);
+        g2.drawImage(bench.getImage(), 5, 285, null);
+        g2.drawImage(bench.getImage(), 530, 40, null);
+        g2.drawImage(bench.getImage(), 440, 110, null);
+        g2.drawImage(bench.getImage(), 530, 230, null);
 
 		//Fountain
-		g2.drawImage(fountain.getImage(), 600/2-fountain.getIconWidth(), 325*5/6-fountain.getIconHeight(), null);
+        g2.drawImage(fountain.getImage(), 215, 275, null);
 
 		//Drawing all buildings
 		for (int i=0; i<buildings.size(); i++ ) {
@@ -222,18 +219,26 @@ public class CityPanel extends JPanel implements ActionListener, MouseListener {
 		}
 
 		//Park
-		g2.drawImage(hollywoodSign.getImage(), 600/2-hollywoodSign.getIconWidth()/2, 325/2-hollywoodSign.getIconHeight()/2, null);
-		for(int u=0;u<4;u++) {
-			g2.drawImage(bush.getImage(), 600/2-2*bush.getIconWidth()+bush.getIconWidth()*u, 325/2-park.getIconHeight()/2-bush.getIconHeight(), null);
-			g2.drawImage(bush.getImage(), 600/2-2*bush.getIconWidth()+bush.getIconWidth()*u, 325/2+park.getIconHeight()/2-bush.getIconHeight(), null);
-		}
+        g2.drawImage(hollywoodSign.getImage(), 230, 138, null);
+        g2.drawImage(bush.getImage(), 214, 105, null);
+        g2.drawImage(bush.getImage(), 244, 105, null);
+        g2.drawImage(bush.getImage(), 274, 105, null);
+        g2.drawImage(bush.getImage(), 304, 105, null);
+        g2.drawImage(bush.getImage(), 334, 105, null);
 
+        g2.drawImage(bush.getImage(), 214, 165, null);
+        g2.drawImage(bush.getImage(), 244, 165, null);
+        g2.drawImage(bush.getImage(), 274, 165, null);
+        g2.drawImage(bush.getImage(), 304, 165, null);
+        g2.drawImage(bush.getImage(), 334, 165, null);
 
-		//Mansion trees
-		for(int v=0; v<3; v++) {
-			g2.drawImage(tree.getImage(), 600/6-house.getIconWidth()/2-20-tree.getIconWidth(), 325/2-house.getIconHeight()/2+25*(v-1), null);
-			g2.drawImage(tree.getImage(), 600/6+house.getIconWidth()/2-20, 325/2-house.getIconHeight()/2+25*(v-1), null);
-		}
+        //Mansion trees
+        g2.drawImage(tree.getImage(), 0, 100, null);
+        g2.drawImage(tree.getImage(), 0, 125, null);
+        g2.drawImage(tree.getImage(), 0, 150, null);
+        g2.drawImage(tree.getImage(), 125, 100, null);
+        g2.drawImage(tree.getImage(), 125, 125, null);
+        g2.drawImage(tree.getImage(), 125, 150, null);
 
 		//Drawing all People guis
 		synchronized (cGuis) {

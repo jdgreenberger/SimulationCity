@@ -46,11 +46,6 @@ public class Application extends JPanel {
 		Phonebook.getPhonebook().getChineseRestaurant().chineseRestaurantCookRole.addMarket(Phonebook.getPhonebook().getEastMarket());
 		Phonebook.getPhonebook().getChineseRestaurant().chineseRestaurantCookRole.addMarket(Phonebook.getPhonebook().getWestMarket());
 
-		//runFullScenario();
-		//runScenarioA();
-		//runScenarioB();
-		//runScenarioC();
-
 		//Buses
 		BusAgent horizontal = new BusAgent("Horizontal");
 		BusAgent vertical = new BusAgent("Vertical");
@@ -63,7 +58,6 @@ public class Application extends JPanel {
 		horizontal.startThread();
 		vertical.startThread();
 		updatePeopleTime();
-
 	}
 
 	public void updatePeopleTime(){
@@ -146,7 +140,7 @@ public class Application extends JPanel {
 
 	//function used to test gui functionality
 	public void printLastPop(){
-		System.out.println(getPopulation().get(getPopulation().size()-1).getName());
+		//System.out.println(getPopulation().get(getPopulation().size()-1).getName());
 	}
 
 	public int getPopulationSize() {

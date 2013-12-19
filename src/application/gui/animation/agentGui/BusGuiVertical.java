@@ -20,16 +20,16 @@ public class BusGuiVertical extends VehicleGui {
 
 	private final int stopTopY = (int) Phonebook.getPhonebook().getAllBusStops().get(1).getBusStopLocation().getY()+8;
 	private final int stopBottomY = (int) Phonebook.getPhonebook().getAllBusStops().get(4).getBusStopLocation().getY()+8;
-	private final int stopLeftX = 600/3-busUp.getIconWidth()/2;
-	private final int stopRightX = 600*2/3-busDown.getIconWidth()/2;
+    private final int stopLeftX = 168;
+    private final int stopRightX = 395;
 
 	private final int waitTime = 1500;
 
 	private int yDestination = stopBottomY;//Stop 4
 	private int xDestination = xPos;
 	
-	private final int offScreenTopLeftRoad = -50;
-	private final int offScreenBottomRightRoad = 350;
+    private final int offScreenTopLeftRoad = -50;
+    private final int offScreenBottomRightRoad = 350;
 
 	private enum Command {noCommand, wait, stop1, stop2, stop3, stop4};
 	private Command command = Command.stop4;
