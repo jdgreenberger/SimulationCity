@@ -107,6 +107,8 @@ team20
   	+ Implemented animated restaurant building GUI
   	+ Fixed scrollbar on Infomation Panel
   	+ Set up initial project packages with agent and test code
+  	+ All transportation GUI
+  	+ Transportation collisions
   	+ Managed team meetings
 
 
@@ -152,7 +154,6 @@ team20
   	+ Initialized Transportation (Bus, Car) Agents
   	+ Modified Application file to set and initialize Guis with the agents methods
   	+ Created function for future dynamic business and building creation in the gui
-  	_ 
   	
 
   + Nishant Srikanthan (Team Leader)
