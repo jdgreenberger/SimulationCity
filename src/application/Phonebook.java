@@ -20,12 +20,6 @@ import chineseRestaurant.ChineseRestaurant;
 
 public class Phonebook{
 	
-	/*
-	Toolkit tk = Toolkit.getDefaultToolkit();
-	int WINDOWX = ((int) tk.getScreenSize().getWidth())/2; 
-	int WINDOWY = (((int) tk.getScreenSize().getHeight())/2)*5/6;   
-	*/  
-
 	//Banks
 	static private Bank eastBank;
 	static private Bank westBank;
@@ -56,7 +50,6 @@ public class Phonebook{
 
 	private RadioStation cityDJ;
 	
-	//the following 4 lists are for dynamic building and business making in v2
 
 	public class Block {
 		int blockNumber;
@@ -85,8 +78,7 @@ public class Phonebook{
 	}
 
 	//Add list of neighboring blocks
-	public HashMap <Integer, Block> blocks = new HashMap <Integer, Block>();
-	{
+	public HashMap <Integer, Block> blocks = new HashMap <Integer, Block>(); {
 		List<Integer> block1 = new ArrayList<Integer> ();
 		block1.add(2);
 		block1.add(4);
@@ -146,7 +138,6 @@ public class Phonebook{
 	public List<BusStop> busStopsList = new ArrayList<BusStop>();
 
 	
-	
 	//Intersections        
     public Intersection intersection1 = new Intersection(170, 72, 30, 38, 1);
     public Intersection intersection2 = new Intersection(390, 72, 30, 38, 2);
@@ -194,11 +185,11 @@ public class Phonebook{
 	private Phonebook() {
 
 		//Set bus stops
-		busStopsList.add(new BusStop(0, 0, 0)); 			//empty busStop
-		busStopsList.add(new BusStop(1, 600/3-600/12, 325/3-325/5));	//Top left bus Stop
-		busStopsList.add(new BusStop(2, 600*2/3+600/12, 325/3-325/10));// Top Right Bus Stop
-		busStopsList.add(new BusStop(3, 600*2/3+600/12, 325*2/3+325/12));			// Bottom Right Bus Stop
-		busStopsList.add(new BusStop(4, 600/3-600/12, 325*2/3+325/12));			// Bottom Left Bus Stop
+        busStopsList.add(new BusStop(0, 0, 0));                         //empty busStop
+        busStopsList.add(new BusStop(1, 127, 28));                        //Top left bus Stop
+        busStopsList.add(new BusStop(2, 420, 28));                        // Top Right Bus Stop
+        busStopsList.add(new BusStop(3, 420, 230));                        // Bottom Right Bus Stop
+        busStopsList.add(new BusStop(4, 127, 230));                        // Bottom Left Bus Stop
 		
 		eastApartment = new Apartment("East Apartment");
 		westApartment = new Apartment("West Apartment");
@@ -243,10 +234,6 @@ public class Phonebook{
 		restaurants.add(americanRestaurant);
 		
 		housingMaintenanceCompany = new HousingMaintenanceCompany("Housing maintenance company");
-//		getBusStops().add(new Point(600/3-600/12, 325/3-325/5));
-//		getBusStops().add(new Point(600*2/3+600/18, 325/3-325/10));
-//		getBusStops().add(new Point(600*2/3+600/18, 325*2/3+325/12));
-//		getBusStops().add(new Point(600/3-600/12, 325*2/3+325/12));
 	}
 
 	public static Phonebook getPhonebook() {

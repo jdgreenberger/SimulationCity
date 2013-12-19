@@ -154,8 +154,15 @@ public class PersonGui extends CityGui {
 
 	public void draw(Graphics2D g) {
 
-		if(command != Command.noCommand) {
+		if (command != Command.noCommand) {
 			currColor = myColor;
+		}
+
+		if (xPos == xHome && yPos == yHome) {
+			g.setColor(transColor);
+		}
+		else {
+			g.setColor(currColor);
 		}
 
 		if (raveMode){
@@ -166,8 +173,15 @@ public class PersonGui extends CityGui {
 			Color myColor = new Color(red, blue, green);
 			g.setColor(myColor);
 		}
-		else if (!raveMode)
-			g.setColor(currColor);
+		else if (!raveMode) {
+			if (xPos == xHome && yPos == yHome) {
+				g.setColor(transColor);
+			}
+			else {
+				g.setColor(currColor);
+			}
+		}
+
 
 		g.fillRect(xPos, yPos, 20, 20);
 
@@ -202,19 +216,7 @@ public class PersonGui extends CityGui {
 		command = Command.GoHome;
 	}
 
-	//public void doGoToBus(double endX, double endY) {
-	//	System.out.println("Going to bus stop");
-	//	endStopX = (int) endX;
-	//	endStopY = (int) endY;
-	//	findStartStop();
-	//	xDestination = startStopX;
-	//	yDestination = startStopY;
-	//	setDefaultColor();
-	//	command = Command.GoToBusStop;
-	//}
-
-	public void doGoToBusStop()
-	{
+	public void doGoToBusStop() {
 		xDestination = Phonebook.getPhonebook().getAllBusStops().get(getClosestBusStopNumber()).getBusStopLocation().x;
 		yDestination = Phonebook.getPhonebook().getAllBusStops().get(getClosestBusStopNumber()).getBusStopLocation().y;
 		System.out.println("Going to bus stop");
@@ -259,8 +261,9 @@ public class PersonGui extends CityGui {
 		if (location.equals("Home")) {
 			xDestination = xHome;
 			yDestination = yHome;
-			command = Command.GoToRestaurant;
+			command = Command.GoHome;
 		}
+
 		currentBlock = returnCurrentBlock (xPos, yPos);
 		destinationBlock = returnCurrentBlock (xDestination, yDestination);
 		if (currentBlock == destinationBlock) {
@@ -277,8 +280,7 @@ public class PersonGui extends CityGui {
 	}
 
 
-	public int getClosestBusStopNumber()
-	{
+	public int getClosestBusStopNumber() {
 		if(returnCurrentBlock(xPos, yPos) == 1 || returnCurrentBlock(xPos, yPos) == 2 || returnCurrentBlock(xPos, yPos) == 4 ||
 				returnCurrentBlock(xPos, yPos) == 5 )
 		{
@@ -345,74 +347,104 @@ public class PersonGui extends CityGui {
 	}
 
 	public int returnCurrentBlock (int xPos, int yPos){
-
-		if (xPos < 600/3-325/20 && yPos < 325/3-325/20){
+		if (xPos < 160 && yPos < 70){
 			return 1;
 		}
-		if ((xPos > 600/3+325/20 && xPos < 600*2/3-325/20) && yPos < 325/3-325/20){
+		else if ((xPos > 199 && xPos < 380) && yPos < 70){
 			return 2;
 		}
-		if (xPos > 600*2/3+325/20 && yPos < 325/3-325/20){
+		else if (xPos > 419 && yPos < 70){
 			return 3;
 		}
 
-		if (xPos < 600/3-325/20 && (yPos > 325/3+325/20 && yPos < 325*2/3-325/20)){
+		else if (xPos < 160 && (yPos > 100 && yPos < 190)){
 			return 4;
 		}
-		if ((xPos > 600/3+325/20 && xPos < 600*2/3-325/20) && (yPos > 325/3+325/20 && yPos < 325*2/3-325/20)){
+		else if ((xPos > 199 && xPos < 380) && (yPos > 109 && yPos < 190)){
 			return 5;
 		}
-		if (xPos > 600*2/3+325/20 && (yPos > 325/3+325/20 && yPos < 325*2/3-325/20)){
+		else if (xPos > 419 && (yPos > 109 && yPos < 190)){
 			return 6;
 		}
 
-
-		if (xPos < 600/3-325/20 && yPos > 325*2/3+325/20){
+		else if (xPos < 160 && yPos > 229){
 			return 7;
 		}
-		if ((xPos > 600/3+325/20 && xPos < 600*2/3-325/20) && yPos > 325*2/3+325/20){
+		else if ((xPos > 199 && xPos < 380) && yPos > 229){
 			return 8;
 		}
-		if (xPos > 600*2/3+325/20 && yPos > 325*2/3+325/20){
+		else if (xPos > 419 && yPos > 229){
 			return 9;
 		}
 
 		else
 			return 0;
 
-		/*
-		if (xPos < 600/3 && yPos < 325/3){
-			return 1;
-		}
-		if ((xPos > 600/3 && xPos < 600*2/3) && yPos < 325/3){
-			return 2;
-		}
-		if (xPos > 600*2/3 && yPos < 325/3){
-			return 3;
-		}
+		//		if (xPos < 600/3-325/20 && yPos < 325/3-325/20){
+		//			return 1;
+		//		}
+		//		if ((xPos > 600/3+325/20 && xPos < 600*2/3-325/20) && yPos < 325/3-325/20){
+		//			return 2;
+		//		}
+		//		if (xPos > 600*2/3+325/20 && yPos < 325/3-325/20){
+		//			return 3;
+		//		}
+		//
+		//		if (xPos < 600/3-325/20 && (yPos > 325/3+325/20 && yPos < 325*2/3-325/20)){
+		//			return 4;
+		//		}
+		//		if ((xPos > 600/3+325/20 && xPos < 600*2/3-325/20) && (yPos > 325/3+325/20 && yPos < 325*2/3-325/20)){
+		//			return 5;
+		//		}
+		//		if (xPos > 600*2/3+325/20 && (yPos > 325/3+325/20 && yPos < 325*2/3-325/20)){
+		//			return 6;
+		//		}
+		//
+		//
+		//		if (xPos < 600/3-325/20 && yPos > 325*2/3+325/20){
+		//			return 7;
+		//		}
+		//		if ((xPos > 600/3+325/20 && xPos < 600*2/3-325/20) && yPos > 325*2/3+325/20){
+		//			return 8;
+		//		}
+		//		if (xPos > 600*2/3+325/20 && yPos > 325*2/3+325/20){
+		//			return 9;
+		//		}
+		//
+		//		else
+		//			return 0;
 
-		if (xPos < 600/3 && (yPos > 600*2/3 && yPos < 600*2/3)){
-			return 4;
-		}
-		if ((xPos > 600/3 && xPos < 600*2/3) && (yPos > 600/3 && yPos < 600*2/3)){
-			return 5;
-		}
-		if (xPos > 600*2/3 && (yPos > 325/3 && yPos < 600*2/3)){
-			return 6;
-		}
-		if (xPos < 600/3 && yPos > 600*2/3){
-			return 7;
-		}
-		if ((xPos > 600/3 && xPos < 600*2/3) && yPos > 600*2/3){
-			return 8;
-		}
-		if (xPos > 600*2/3 && yPos > 600*2/3){
-			return 9;
-		}
-
-		else
-			return 0;
-		 */
+		//		if (xPos < 600/3 && yPos < 325/3){
+		//			return 1;
+		//		}
+		//		if ((xPos > 600/3 && xPos < 600*2/3) && yPos < 325/3){
+		//			return 2;
+		//		}
+		//		if (xPos > 600*2/3 && yPos < 325/3){
+		//			return 3;
+		//		}
+		//
+		//		if (xPos < 600/3 && (yPos > 600*2/3 && yPos < 600*2/3)){
+		//			return 4;
+		//		}
+		//		if ((xPos > 600/3 && xPos < 600*2/3) && (yPos > 600/3 && yPos < 600*2/3)){
+		//			return 5;
+		//		}
+		//		if (xPos > 600*2/3 && (yPos > 325/3 && yPos < 600*2/3)){
+		//			return 6;
+		//		}
+		//		if (xPos < 600/3 && yPos > 600*2/3){
+		//			return 7;
+		//		}
+		//		if ((xPos > 600/3 && xPos < 600*2/3) && yPos > 600*2/3){
+		//			return 8;
+		//		}
+		//		if (xPos > 600*2/3 && yPos > 600*2/3){
+		//			return 9;
+		//		}
+		//
+		//		else
+		//			return 0;
 	}
 
 	//public void findStartStop() {

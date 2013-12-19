@@ -38,12 +38,12 @@ import application.gui.trace.AlertLog;
 import application.gui.trace.AlertTag;
 
 public class Bank {
-	
+
 	/*
 	Toolkit tk = Toolkit.getDefaultToolkit();
 	int WINDOWX = ((int) tk.getScreenSize().getWidth())/2; 
 	int WINDOWY = (((int) tk.getScreenSize().getHeight())/2)*5/6;   
-	*/  
+	 */  
 
 	//Data
 	String name;
@@ -66,27 +66,28 @@ public class Bank {
 	//Roles
 	public BankGuardRole bankGuardRole;
 	public BankGuardGui bankGuardGui = new BankGuardGui();
-	
+
 	public LoanOfficerRole loanOfficerRole;
 	public BankLoanerGui loanOfficerGui = new BankLoanerGui(loanOfficerRole);
-	
+
 	//Mocks roles for test
 	public BankGuardMock bankGuardMock = new BankGuardMock("Bank Guard");
 	public LoanOfficerMock loanOfficerMock = new LoanOfficerMock("Loan Officer");
 	public List <BankTellerMock> mockTellers = new ArrayList<>();
 	private BuildingPanel bankPanel;
 	private ImageIcon bank = new ImageIcon("res/bank.png", "bank");
-	
+
 	//Constructor
 	public Bank(String name) {
 		bankGuardRole  = new BankGuardRole("Bank Guard");
 		loanOfficerRole =  new LoanOfficerRole("Loan Officer");
-			
-		if (name.equals("East Bank"))
-			location = new Point(600/2, 325-bank.getIconHeight()-20);
+
+		if (name.equals("East Bank")){
+			location = new Point(315, 275);
+		}
 		else if (name.equals("West Bank"))
-			location = new Point(600/2 - bank.getIconWidth(), 325/6-bank.getIconHeight()/2);
-		
+			location = new Point(215, 25);
+
 		this.name = name;
 		vault = 10000;
 		vaultMinimum = 1000;
@@ -99,7 +100,7 @@ public class Bank {
 
 	//Methods
 	public Role arrivedAtWork(Person person, String title) {
-		
+
 		if (title == "bankGuard") {
 			//Setting previous bank guard role to inactive
 			if (bankGuardRole.getPerson() != null) {
@@ -120,7 +121,7 @@ public class Bank {
 		else if (title == "loanOfficer") {
 			//Setting previous bank guard role to inactive
 			if (loanOfficerRole.getPerson() != null) {
-			((Worker) loanOfficerRole.getPerson()).roleFinishedWork();
+				((Worker) loanOfficerRole.getPerson()).roleFinishedWork();
 			}
 			//Setting bank guard role to new role
 			loanOfficerRole.setPerson(person);
@@ -135,7 +136,7 @@ public class Bank {
 				BankTellerRole t1 = new BankTellerRole(person.getName(), person, title);
 				BankTellerGui g = new BankTellerGui(t1);
 				bankGuardRole.msgTellerCameToWork(t1);
-				
+
 				t1.setGui(g);
 				setTellerPosition(t1, g);
 				g.DoGoToWindow();
@@ -143,7 +144,7 @@ public class Bank {
 				if (isOpen()) {
 					bankGuardRole.msgBankOpen();
 				}
-				
+
 				bankPanel.addGui(g);
 				return t1;
 			}
@@ -171,7 +172,7 @@ public class Bank {
 			//bankPanel.removeGui(worker.getWorkerRole().gui);
 		}
 	}
-	
+
 	public void msgCustomerArrived(BankCustomerRole BCR) {
 		BankCustomerGui BCG= new BankCustomerGui(BCR);
 		BCR.setGui(BCG);
@@ -196,7 +197,7 @@ public class Bank {
 			g.setTellerPosition(4);
 		}
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -204,7 +205,7 @@ public class Bank {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public boolean isOpen(){
 		if (loanOfficerRole.getPerson() != null && bankGuardRole.getPerson() != null && bankGuardRole.getTellers().size() > 0 && !userClosed){
 			return true;
@@ -220,7 +221,7 @@ public class Bank {
 		else
 			return bankGuardRole;
 	}
-	
+
 	public LoanOfficer getLoanOfficer(boolean test) {
 		if (test)
 			return loanOfficerMock;
@@ -231,11 +232,11 @@ public class Bank {
 	public void setBuildingPanel(BuildingPanel myBuildingPanel) {
 		bankPanel = myBuildingPanel;
 	}
-	
+
 	public void removeCustomer(BankCustomerRole customerRole) {
 		bankPanel.removeGui(customerRole.getGui());
 	}
-	
+
 	public void closeBuilding(){
 		userClosed = true;
 		bankGuardRole.msgLeaveRole();
@@ -244,23 +245,23 @@ public class Bank {
 		}
 		loanOfficerRole.msgLeaveRole();
 	}
-	
-//	public void setClosestStop (Point p) {
-//		closestStop = p;
-//	}
-	
+
+	//	public void setClosestStop (Point p) {
+	//		closestStop = p;
+	//	}
+
 	public void setClosestBusStopNumber (int n) 
 	{
 		busStopNumber = n;
 	}
-	
+
 	public BusStop getClosestBusStop ()
 	{
 		return Phonebook.getPhonebook().getAllBusStops().get(busStopNumber);
 	}
 
 
-//	public Point getClosestStop() {
-//		return closestStop;
-//	}
+	//	public Point getClosestStop() {
+	//		return closestStop;
+	//	}
 }

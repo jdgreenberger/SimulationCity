@@ -25,12 +25,7 @@ import application.gui.animation.agentGui.MarketSalesPersonGui;
 import application.gui.animation.agentGui.MarketUPSmanGui;
 
 public class Market {
-	
-	/*
-	Toolkit tk = Toolkit.getDefaultToolkit();
-	int WINDOWX = ((int) tk.getScreenSize().getWidth())/2; 
-	int WINDOWY = (((int) tk.getScreenSize().getHeight())/2)*5/6;   
-	*/
+
 	ImageIcon market = new ImageIcon("res/market.png", "market");
 
 	//Data
@@ -58,7 +53,7 @@ public class Market {
 	public MockSalesPerson mockSalesPerson = new MockSalesPerson("MockSalesPerson");
 	public MockMarketRunner mockMarketRunner = new MockMarketRunner("MockMarketRunner");
 	public MockUPSman mockUPSman = new MockUPSman("MockUPSMan");
-	
+
 	public List <MarketCustomerGui> marketCustomerGuis = new ArrayList<MarketCustomerGui>();
 
 	private BuildingPanel marketPanel;
@@ -93,7 +88,7 @@ public class Market {
 		inventory.put("Steak", new Item("Steak", 15.99, 1000));
 		inventory.put("Pizza", new Item("Pizza", 8.99, 1000));
 		inventory.put("Salad", new Item("Salad", 5.99, 1000));
-		
+
 		inventory.put("Bourbon-Glazed Salmon", new Item("Bourbon-Glazed Salmon", 10.99, 1000));
 		inventory.put("Lobster Tail and Roll", new Item("Lobster Tail and Roll", 15.99, 1000));
 		inventory.put("Grilled Shrimp Skewers", new Item("Grilled Shrimp Skewers", 8.99, 1000));
@@ -103,10 +98,11 @@ public class Market {
 	//Constructor
 	public Market(String name) 	{
 		if (name == "East Market"){
-			location = new Point(600*5/6+5, 325/2-market.getIconHeight()/2);
+			location = new Point(530, 123);
 		}
+		
 		if (name == "West Market"){
-			location = new Point(600/6, 325*5/6);	
+			location = new Point(95, 290);        
 		}
 		
 		this.name = name;
@@ -173,7 +169,7 @@ public class Market {
 		mCR.setMarket(this);
 		marketCustomerGuis.add(MCG);
 		marketPanel.addGui(MCG);
-	//	MCG.waitInLine();
+		//	MCG.waitInLine();
 	}
 
 	public void goingOffWork(Person person) {
@@ -263,37 +259,37 @@ public class Market {
 		else 
 			return false;
 	}
-	
+
 	public void removeCustomer(MarketCustomerRole customerRole) {
 		marketPanel.removeGui(customerRole.getGui());
 		marketCustomerGuis.remove(customerRole.getGui());
 	}
-	
+
 	public void closeBuilding(){
 		userClosed = true;
 		salesPersonRole.msgLeaveRole();
-		
+
 		marketRunnerRole.msgLeaveRole();
-		
+
 		UPSmanRole.msgLeaveRole();
 	}
 
 
-//	public void setClosestStop(Point point) {
-//		closestStop = point;
-//	}
-	
+	//	public void setClosestStop(Point point) {
+	//		closestStop = point;
+	//	}
+
 	public void setClosestBusStopNumber (int n) 
 	{
 		busStopNumber = n;
 	}
-	
+
 	public BusStop getClosestBusStop ()
 	{
 		return Phonebook.getPhonebook().getAllBusStops().get(busStopNumber);
 	}
-	
-//	public Point getClosestStop() {
-//		return closestStop;
-//	}
+
+	//	public Point getClosestStop() {
+	//		return closestStop;
+	//	}
 }
